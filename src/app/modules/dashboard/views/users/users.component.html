@@ -1,0 +1,39 @@
+<div class="block">
+  <h4 class="font-bold text-lg pb-4">Usuarios</h4>
+
+  <div class="flex">
+    <div class="block w-3/4">
+      <table class="table w-full border border-gray-200">
+        <thead class="bg-teal-500 text-white">
+          <tr class="leading-normal">
+            <th class="py-2 px-6 text-left">Nombre</th>
+            <th class="py-2 px-6 text-left">Apellidos</th>
+            <th class="py-2 px-6 text-left">Nickname</th>
+            <th class="py-2 px-6 text-left">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of userProvider.list(); track $index) {
+          <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.username}}</td>
+            <td>
+              <app-icon-button color="text-red-500" [icon]="iconDelete" (click)="handleDelete(user.username)"/>
+            </td>
+          </tr>
+          } @empty {
+          <tr>
+            <td colspan="4" class="text-center">No hay usuarios que mostrar</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="p-2 w-1/4">
+      <app-form-user />
+    </div>
+  </div>
+
+</div>

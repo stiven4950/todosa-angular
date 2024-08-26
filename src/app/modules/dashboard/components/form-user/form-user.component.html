@@ -1,0 +1,31 @@
+<form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+  <h5 class="font-bold mb-2">Crear usuario</h5>
+  <div class="block mb-2">
+    <label>Nombre</label>
+    <input type="text" formControlName="name" class="block w-full outline-none py-1 px-2" />
+    <div class="text-end text-red-800 text-xs" [hidden]="name.valid || name.pristine">
+      El nombre es obligatorio
+    </div>
+  </div>
+
+  <div class="block mb-2">
+    <label>Apellidos</label>
+    <input type="text" formControlName="lastname" class="block w-full outline-none py-1 px-2" />
+    <div class="text-end text-red-800 text-xs" [hidden]="lastname.valid || lastname.pristine">
+      El apellido es obligatorio
+    </div>
+  </div>
+
+  <div class="block mb-2">
+    <label>Nickname</label>
+    <input type="text" formControlName="username" class="block w-full outline-none py-1 px-2" />
+    <div class="text-end text-red-800 text-xs" [hidden]="username.valid || username.pristine">
+      El nickname es obligatorio
+    </div>
+  </div>
+
+  <button type="submit" class="block bg-teal-500 py-1 px-2 text-white rounded mx-auto">
+    <fa-icon [icon]="iconPerson"></fa-icon>
+    Crear
+  </button>
+</form>
